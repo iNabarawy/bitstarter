@@ -16,6 +16,7 @@ var downloadUrl = function(url) {
        fs.writeFileSync(outFile, result);
        var checkJson = checkHtmlFile(outFile, program.checks);
        var outJson = JSON.stringify(checkJson, null, 4);
+       fs.writeFileSync(outFile+".json", outJson);
 console.log(outJson);
  });
 }
@@ -62,6 +63,7 @@ if(require.main == module) {
     if (program.file){
 	var checkJson = checkHtmlFile(program.file, program.checks);
 	var outJson  = JSON.stringify(checkJson, null, 4);
+	fs.writeFileSync(program.file+".json", outJson);
 	console.log(outJson);
 }
 }else {
